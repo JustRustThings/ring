@@ -606,10 +606,6 @@ fn cc(
 
     let mut c = cc::Build::new();
 
-    // FIXME: On Windows AArch64 we currently must use Clang to compile C code
-    if target.os == WINDOWS && target.arch == AARCH64 && !c.get_compiler().is_like_clang() {
-        let _ = c.compiler("clang");
-    }
     let compiler = c.get_compiler();
     let _ = c.include("include");
     match ext {
