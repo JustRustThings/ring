@@ -301,7 +301,7 @@ fn ring_build_rs_main() {
         env.starts_with("musl")
     };
 
-    let is_git = std::fs::metadata(".git").is_ok();
+    let is_git = false;
 
     // Published builds are always built in release mode.
     let is_debug = is_git && env::var("DEBUG").unwrap() != "false";
